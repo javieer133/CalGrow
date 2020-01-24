@@ -78,6 +78,9 @@ export class FieldsAdminComponent implements OnInit {
   onCreateConfirm(event): void {
     this.fieldsService.createField({
       name: event.newData.name,
+      numFruits: 0,
+      numPlants: 0,
+      numSectors: 0,
       subscriptionId: this.subscriptionId,
       gps_pos: '0'
     }).subscribe({
