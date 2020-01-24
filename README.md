@@ -13,5 +13,11 @@
 - Se clona el repositorio y se instalan las dependencias necesarias
 - Se hace un build al frontEnd
 
+## Tareas que faltan
+- Trabajar en el backend para que se puedan agregar sectores, plantas y frutas de forma automática
+
+## Problemas
+- No he podido configurar nginx, por lo que no puedo deployar en su totalidad la aplicación angular.
+
 ## Autor
 - Javier Hermosilla Mallea
