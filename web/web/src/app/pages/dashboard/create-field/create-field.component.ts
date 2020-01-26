@@ -23,7 +23,8 @@ export class CreateFieldComponent implements OnInit {
 
   setField(event) {
     this.field = event.newField;
-    this.indexStep = 1;//1 
+    this.indexStep = 0;//1 
+    this.ref.close(Field);
   }
   setSector() {
     this.plantStep = true;

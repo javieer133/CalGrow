@@ -8,6 +8,9 @@
 - Se configura el entorno para trabajar de forma local la base de datos
 - Se edita el componente y plantilla que se encargan de agregar un campo a la base de datos. En estos momentos el formulario permite ingresar el número de sectores, plantas y frutas de un campo en espécifico.
 - Se modifica el archivo field.component.ts para que se generen automaticamente los sectores, plantas y frutas asociados.
+- El nombre que se genera para los sectores son del tipo: S-IdCampo-número_sector.
+- El nombre que se genera para las plantas son del tipo: P-IdSector-número_planta.
+- El nombre que se genera para las frutas son del tipo: S-IdFruta-número_fruta.
 
 
 ## Tareas en la instancia
@@ -16,6 +19,7 @@
 - Se hace un build al frontEnd
 - La app Angular se ejecuta en /var/www/CalGrow/web/web/dist
 - Se configura nginx en el puerto 3001, ya que apache corre en el 80.
+- Se instala el servicio pm2 para que los servicios de backend corran en todo momento.
 
 
 ## Problemas

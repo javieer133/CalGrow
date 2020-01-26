@@ -144,7 +144,7 @@ export class FieldComponent implements OnInit {
           this.getNewField.emit({newField: newField.payload});
           for (let num = 0; num < this.fieldForm.value.fieldSectors; num++) {
             this.sectorsService.createSector({
-              name: 'S - ' + newField.payload.name + num,
+              name: 'S-' + newField.payload.id + '-' + num,
               fieldId: newField.payload.id
             }).subscribe({
               next: function(newField){
@@ -153,7 +153,7 @@ export class FieldComponent implements OnInit {
                 for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
                   this.sectors.forEach(element => {
                     this.plantsService.createPlant({
-                      name: 'S - ' + element.name + num,
+                      name: 'P-' + element.id + '-' + num,
                       sectorId: element.id
                     }).subscribe({
                       next: function(newPlant){
@@ -162,7 +162,7 @@ export class FieldComponent implements OnInit {
                         for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
                           this.plants.forEach(element => {
                             this.fruitsService.createFruit({
-                              name : 'S - ' + element.name + num,
+                              name : 'S-' + element.id + '-' +num,
                               plantId: element.id
                             }).subscribe()
                           });
