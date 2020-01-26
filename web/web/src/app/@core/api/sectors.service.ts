@@ -22,7 +22,7 @@ export class SectorsService {
   }
 
   createSector(sector: Sector): Observable<any> {
-    console.log(sector)
+    console.log("sectors")
     return this.http.post<ApiResponse>(this.baseUrl, sector);
   }
 

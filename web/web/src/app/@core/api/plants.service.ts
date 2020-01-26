@@ -22,7 +22,7 @@ export class PlantsService {
   }
 
   createPlant(plant: Plant): Observable<ApiResponse> {
-    console.log(plant)
+    console.log("plants")
     return this.http.post<ApiResponse>(this.baseUrl, plant);
   }
 

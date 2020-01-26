@@ -2,9 +2,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ViewChild, ElementRef, NgZone } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 import { FieldsService } from '../../../@core/api/fields.service';
+import { SectorsService } from '../../../@core/api/sectors.service';
+import { PlantsService } from '../../../@core/api/plants.service';
+import { FruitsService } from '../../../@core/api/fruits.service';
+import { Plant, Sector, ApiResponse } from '../../../@core/api/models';
 import { NbAuthService, NbAuthJWTToken } from '@nebular/auth';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { NbToastrService } from '@nebular/theme';
+import { NbToastrService, COSMIC_THEME } from '@nebular/theme';
 @Component({
   selector: 'ngx-field',
   templateUrl: './field.component.html',
@@ -21,6 +25,7 @@ export class FieldComponent implements OnInit {
   
 
   constructor(private mapsAPILoader: MapsAPILoader,private fieldsService: FieldsService,
+    private sectorsService: SectorsService, private plantsService: PlantsService, private fruitsService: FruitsService,
     private authService: NbAuthService,private fb: FormBuilder,
     private ngZone: NgZone, private toastrService: NbToastrService) { }
 
@@ -137,8 +142,40 @@ export class FieldComponent implements OnInit {
     }).subscribe({
         next: function (newField) {
           this.getNewField.emit({newField: newField.payload});
+          for (let num = 0; num < this.fieldForm.value.fieldSectors; num++) {
+            this.sectorsService.createSector({
+              name: 'S - ' + newField.payload.name + num,
+              fieldId: newField.payload.id
+            }).subscribe({
+              next: function(newField){
+                this.sectors = Array<Sector>()
+                this.sectors.push(newField.payload)
+                for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
+                  this.sectors.forEach(element => {
+                    this.plantsService.createPlant({
+                      name: 'S - ' + element.name + num,
+                      sectorId: element.id
+                    }).subscribe({
+                      next: function(newPlant){
+                        this.plants = Array<Plant>();
+                        this.plants.push(newPlant.payload)
+                        for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
+                          this.plants.forEach(element => {
+                            this.fruitsService.createFruit({
+                              name : 'S - ' + element.name + num,
+                              plantId: element.id
+                            }).subscribe()
+                          });
+                        }
+                      }.bind(this)
+                    })
+                  });
+                }
+              }.bind(this)
+            })
+          }
           this.toastrService.show(
-            newField.name,
+            newField.id,
             "Campo creado",
             { position: 'top-right', status: 'success' });
         }.bind(this),

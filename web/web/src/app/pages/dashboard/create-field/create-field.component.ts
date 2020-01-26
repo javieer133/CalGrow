@@ -23,12 +23,12 @@ export class CreateFieldComponent implements OnInit {
 
   setField(event) {
     this.field = event.newField;
-    this.indexStep = 0;//1 
-    this.ref.close(Field);
+    this.indexStep = 1;//1 
   }
   setSector() {
     this.plantStep = true;
     this.indexStep = 2;
+    this.ref.close(Field);
   }
 
   setPlant() {
