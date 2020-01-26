@@ -16,12 +16,6 @@ module.exports = {
       .then((result) => messages.success(result, res)) 
       .catch((error) => messages.error(error, res))
   },
-  createField: (tables, req, res) =>{
-    tables['field'].create(req.body)
-      .then( (result)  => {
-        console.log("d")
-      })
-  },
   update: (table, req, res) => {
     table.update(req.body,
       {

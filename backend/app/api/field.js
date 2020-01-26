@@ -11,7 +11,7 @@ module.exports = (app, db) => {
 
   app.get("/field/:id", (req, res) => crud.find(db.field, req, res));
 
-  app.post("/field", (req, res) => crud.create(tables, req, res));
+  app.post("/field", (req, res) => crud.create(db.field, req, res));
 
   app.put("/field/:id", (req, res) => crud.update(db.field, req, res));
 
@@ -51,9 +51,9 @@ module.exports = (app, db) => {
     const mysql = require('mysql2');
     const connection = mysql.createConnection({
       host: 'localhost',
-      user: 'javier',
-      password: 'Javierihm798',
-      database: 'calgrow'
+      user: 'calgrow_admin',
+      password: 'V0n,^a.O]P!;q~eqG[',
+      database: 'calgrow_measurements'
     });
   
   
