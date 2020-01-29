@@ -50,6 +50,7 @@ export class SectorsAdminComponent implements OnInit {
       name: {
         title: 'Nombre',
         type: 'text',
+        filter: false,
       },
     },
   };

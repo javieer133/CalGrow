@@ -38,6 +38,7 @@ export class FieldsAdminComponent implements OnInit {
       name: {
         title: 'Nombre',
         type: 'string',
+        filter: false
       },
     },
   };

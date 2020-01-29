@@ -39,7 +39,7 @@
     Gestión de plantas de {{ selectedFieldName }} -> {{ selectedSectorName }}
     <div class="input-group">
       <button nbButton (click)="annulateSelection()">Volver a selección de sector</button>
-      <button nbButton (click)="stepper.reset(); annulateSelection()" *ngIf="selectFieldOption">Volver a selección de campo</button>
+      <button style="margin-left: 10px;" nbButton (click)="stepper.reset(); annulateSelection()" *ngIf="selectFieldOption">Volver a selección de campo</button>
     </div>
   </nb-card-header>
 

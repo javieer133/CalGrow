@@ -24,9 +24,9 @@ export class FieldComponent implements OnInit {
   autocompleteService: google.maps.places.AutocompleteService;
   
 
-  constructor(private mapsAPILoader: MapsAPILoader,private fieldsService: FieldsService,
+  constructor(private mapsAPILoader: MapsAPILoader, private fieldsService: FieldsService,
     private sectorsService: SectorsService, private plantsService: PlantsService, private fruitsService: FruitsService,
-    private authService: NbAuthService,private fb: FormBuilder,
+    private authService: NbAuthService, private fb: FormBuilder,
     private ngZone: NgZone, private toastrService: NbToastrService) { }
 
   latitude: number;
@@ -49,10 +49,10 @@ export class FieldComponent implements OnInit {
     });
 
     this.fieldForm = this.fb.group({
-      fieldName: ['', Validators.required],
-      fieldSectors: ['', Validators.required],
-      fieldPlants: ['', Validators.required],
-      fieldFruits: ['', Validators.required],
+      fieldName: ['', [Validators.required, Validators.pattern('[A-Za-z0-9 ]*')]],
+      fieldSectors: ['', [Validators.required, Validators.pattern('^[1-9][0-9]{0,1}')]],
+      fieldPlants: ['', [Validators.required, Validators.pattern('^[1-9][0-9]{0,1}')]],
+      fieldFruits: ['', [Validators.required, Validators.pattern('^[1-9][0-9]{0,1}')]],
     });
 
     this.authService.getToken().subscribe({
@@ -144,26 +144,27 @@ export class FieldComponent implements OnInit {
           this.getNewField.emit({newField: newField.payload});
           for (let num = 0; num < this.fieldForm.value.fieldSectors; num++) {
             this.sectorsService.createSector({
-              name: 'S-' + newField.payload.id + '-' + num,
-              fieldId: newField.payload.id
+              name: newField.payload.name + '-S' + (+num + 1),
+              fieldId: newField.payload.id,
             }).subscribe({
-              next: function(newField){
+              next: function(newSector){
                 this.sectors = Array<Sector>()
-                this.sectors.push(newField.payload)
-                for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
+                this.sectors.push(newSector.payload)
+                for (let numP = 0; numP < this.fieldForm.value.fieldPlants; numP++){
                   this.sectors.forEach(element => {
                     this.plantsService.createPlant({
-                      name: 'P-' + element.id + '-' + num,
-                      sectorId: element.id
+                      name: newSector.payload.name + '-P' + (+numP + 1),
+                      sectorId: element.id,
                     }).subscribe({
                       next: function(newPlant){
                         this.plants = Array<Plant>();
                         this.plants.push(newPlant.payload)
-                        for (let num = 0; num < this.fieldForm.value.fieldPlants; num++){
+                        for (let numF = 0; numF < this.fieldForm.value.fieldPlants; numF++){
                           this.plants.forEach(element => {
                             this.fruitsService.createFruit({
-                              name : 'S-' + element.id + '-' +num,
-                              plantId: element.id
+                              name : newPlant.payload.name + '-F' + (+numF + 1),
+                              plantId: element.id,
+                              fruitPLantId: (+numF + 1),
                             }).subscribe()
                           });
                         }

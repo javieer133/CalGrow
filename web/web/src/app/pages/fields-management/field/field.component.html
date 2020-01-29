@@ -19,13 +19,35 @@
   </div>  
   <div class="data">                    
       <form [formGroup]="fieldForm" (ngSubmit)="createField()">                    
-        <div class="section"><input type="text" nbInput fullWidth placeholder="Nombre" formControlName="fieldName"></div>
-        <div class="section"><input type="number" nbInput fullWidth placeholder="Número de Sectores" formControlName="fieldSectors"></div>
-        <div class="section"><input type="number" nbInput fullWidth placeholder="Número de Plantas" formControlName="fieldPlants"></div>
-        <div class="section"><input type="number" nbInput fullWidth placeholder="Número de Frutos" formControlName="fieldFruits"></div>
+        <div class="section">
+            <input
+                nbInput 
+                type="text"
+                fullWidth 
+                placeholder="Nombre" 
+                formControlName="fieldName"/>
+
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldName').hasError('pattern')">Ingrese solo letras y/o números</p>
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldName').touched && fieldForm.get('fieldName').hasError('required')">Campo requerido</p>
+        </div>
+        <div class="section">
+            <input type="text" nbInput fullWidth placeholder="Número de Sectores" formControlName="fieldSectors">
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldSectors').hasError('pattern')">Ingrese solo letras y/o números</p>
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldSectors').touched && fieldForm.get('fieldSectors').hasError('required')">Campo requerido</p>
+        </div>
+        <div class="section">
+            <input type="text" nbInput fullWidth placeholder="Número de Plantas" formControlName="fieldPlants">
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldPlants').hasError('pattern')">Ingrese solo letras y/o números</p>
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldPlants').touched && fieldForm.get('fieldPlants').hasError('required')">Campo requerido</p>
+        </div>
+        <div class="section">
+            <input type="text" nbInput fullWidth placeholder="Número de Frutos" formControlName="fieldFruits">
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldFruits').hasError('pattern')">Ingrese solo letras y/o números</p>
+            <p class="caption status-danger" *ngIf="fieldForm.get('fieldFruits').touched && fieldForm.get('fieldFruits').hasError('required')">Campo requerido</p>
+        </div>
         <div class="section"> <p class="label">Latitude</p><p>{{latitude}}</p></div>
         <div class="section"> <p class="label">Longitud</p> <p>{{longitude}}</p></div>
-        <div class="submit-button"><button type="submit" nbStepperNext fullWidth nbButton status="primary">Crear campo</button></div>
+        <div class="submit-button"><button type="submit" [disabled]="!fieldForm.valid" nbStepperNext fullWidth nbButton status="primary">Crear campo</button></div>
       </form>
   </div>              
 </div>

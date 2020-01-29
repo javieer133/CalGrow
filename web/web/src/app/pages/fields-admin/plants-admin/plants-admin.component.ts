@@ -57,6 +57,7 @@ export class PlantsAdminComponent implements OnInit {
       name: {
         title: 'Nombre',
         type: 'text',
+        filter: false,
       },
       gps_pos: {
         title: 'Posición GPS',

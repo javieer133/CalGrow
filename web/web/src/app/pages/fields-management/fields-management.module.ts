@@ -24,7 +24,9 @@ import { NbInputModule, NbButtonModule, NbToastrModule, NbSelectComponent, NbSel
     }),
   ],
   exports:[
-    FieldComponent
+    FieldComponent,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FieldsManagementModule { }

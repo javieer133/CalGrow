@@ -15,9 +15,9 @@ module.exports = (app, db) => {
     const mysql = require('mysql2');
     const connection = mysql.createConnection({
       host: 'localhost',
-      user: 'calgrow_admin',
-      password: 'V0n,^a.O]P!;q~eqG[',
-      database: 'calgrow_measurements'
+      user: 'javier',
+      password: 'Javierihm798',
+      database: 'calgrow'
     });
     
     consultTypes = {

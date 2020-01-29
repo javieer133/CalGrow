@@ -54,10 +54,12 @@ export class FruitsAdminComponent implements OnInit {
       name: {
         title: 'Nombre',
         type: 'text',
+        filter: false
       },
       fruitPlantId: {
         title: 'Número de Fruto',
-        type: 'text'
+        type: 'text',
+        filter: false
       }
     },
   };
