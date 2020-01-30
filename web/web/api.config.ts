@@ -6,7 +6,7 @@ export const apiConfig = {
     },
     test: {
         authUrl: "https://dashboard.calgrow.cl/auth/",
-        apiUrl: "http://127.0.0.1:3002/",
+        apiUrl: "https://dashboard.calgrow.cl/db/",
 
     },
     production: {
