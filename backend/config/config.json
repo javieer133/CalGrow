@@ -14,8 +14,7 @@
     "database": "calgrow_measurements",
     "host": "localhost",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "port":3307
+    "operatorsAliases": false
   },
   "production": {
     "username": "calgrow_admin",

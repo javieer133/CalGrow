@@ -12,10 +12,9 @@
     "username": "calgrow_admin",
     "password": "V0n,^a.O]P!;q~eqG[",
     "database": "calgrow_users",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "port":3307
+    "operatorsAliases": false
   },
   "production": {
     "username": "calgrow_admin",
@@ -23,7 +22,6 @@
     "database": "calgrow_users",
     "host": "localhost",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "port":3307
+    "operatorsAliases": false
   }
 }
