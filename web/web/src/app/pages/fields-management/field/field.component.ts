@@ -164,7 +164,7 @@ export class FieldComponent implements OnInit {
                             this.fruitsService.createFruit({
                               name : newPlant.payload.name + '-F' + (+numF + 1),
                               plantId: element.id,
-                              fruitPLantId: (+numF + 1),
+                              fruitPlantId: (+numF + 1),
                             }).subscribe()
                           });
                         }

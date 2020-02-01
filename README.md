@@ -12,21 +12,24 @@
 - El nombre que se genera para las plantas son del tipo: NombreSector-P+númeroPlanta.
 - El nombre que se genera para las frutas son del tipo: NombrePLanta-F+númeroFruta.
 - Se Agregan validaciones en el formulario de ingreso de Campo.
-- Se quitan los filtros de las tablas.
+- Se quitan los filtros de las tablas en cada componente de fields admin, se agrega el atributo filter=false a la variable settings..
 - Se agregan estilos de css para que los botones se vean separados.
 
 
 ## Tareas en la instancia
-- Se clona el repositorio y se instalan las dependencias necesarias
-- Repositorio se encuentra en /var/www/CalGrow
+- Se elimina todo desarrollo que no sea el correspondiente a esta prueba.
+- Se clona el repositorio y se instalan las dependencias necesarias.
+- Repositorio se encuentra en /var/www/CalGrow.
+- Se mueve el directorio db y auth a la raíz del sistema.
 - Se hace un build al frontEnd
 - La app Angular se ejecuta en /var/www/CalGrow/web/web/dist
-- Se configura nginx en el puerto 3001, ya que apache corre en el 80.
+- Se terminan los servicios apache y se ocupa Nginx en el puerto 80.
 - Se instala el servicio pm2 para que los servicios de backend corran en todo momento.
 
 
 ## Problemas
 - No he podido configurar nginx, por lo que no puedo deployar en su totalidad la aplicación angular. (Solucionado)
+- Existía un error (1055) en una query, debido a una configuración de mysql, se soluciona agregando una linea de configuración extra.
 
 ## Autor
 - Javier Hermosilla Mallea
