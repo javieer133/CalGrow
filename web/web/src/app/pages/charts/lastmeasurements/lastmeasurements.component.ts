@@ -17,7 +17,7 @@ import {MatTableDataSource, MatTable, MatSort } from '@angular/material';
 import { Field, Sector, Plant, Fruit, ApiResponse, Measurement } from '../../../@core/api/models';
 
 
-import {DecisionComponent} from '../decision/decision.component';
+import {DecisionComponent} from '../../dashboard/decision/decision.component';
 
 interface User {
   id: number;

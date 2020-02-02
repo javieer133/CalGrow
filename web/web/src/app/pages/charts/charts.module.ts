@@ -8,10 +8,13 @@ import { ChartsRoutingModule, routedComponents } from './charts-routing.module';
 import { ChartjsMultipleXaxisComponent } from './chartjs/chartjs-multiple-xaxis.component';
 import { PlantSelectorComponent } from './plant-selector/plant-selector.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LastmeasurementsComponent } from './lastmeasurements/lastmeasurements.component';
+import { MatFormFieldModule, MatPaginatorModule, MatTableModule, MatIconModule, MatSortModule, MatDialogModule, MatDialogRef, MatInputModule } from '@angular/material';
 
 const components = [
   ChartjsMultipleXaxisComponent,
   PlantSelectorComponent,
+  LastmeasurementsComponent,
 ];
 
 @NgModule({
@@ -26,6 +29,12 @@ const components = [
     ReactiveFormsModule,
     NbSelectModule,
     NbButtonModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatIconModule,
+    MatSortModule,
+    MatInputModule,
   ],
   declarations: [...routedComponents, ...components],
 })

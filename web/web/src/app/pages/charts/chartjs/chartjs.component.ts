@@ -37,6 +37,15 @@ export class ChartjsComponent implements OnInit {
   endDate: Date;
   adjustementAvailable: boolean = true;
 
+  selectedFieldItem: Field = {
+    name: '',
+    numFruits: 0,
+    numPlants: 0,
+    numSectors: 0,
+    gps_pos: '',
+    subscriptionId: 0,
+  };
+
   constructor(
     private chartDataService: MeanService,
     protected dateService: NbDateService<Date>,
@@ -148,9 +157,19 @@ export class ChartjsComponent implements OnInit {
     this.polar_means = Array<number>();
     this.means_dates = Array<string>();
     this.adjustementAvailable = true;
+    this.selectedFieldItem = {
+      name: '',
+      numFruits: 0,
+      numPlants: 0,
+      numSectors: 0,
+      gps_pos: '',
+      subscriptionId: 0,
+    }
   }
 
   fieldAddedEventHandler($addedField: Field) {
+    
+    if($addedField.subscriptionId) this.selectedFieldItem = $addedField
     let period = this.getPeriod();
     let fieldsChartData: ChartData[] = this.chartDataService.getFieldMeans($addedField.id, period);
     for (const chartData of fieldsChartData) {

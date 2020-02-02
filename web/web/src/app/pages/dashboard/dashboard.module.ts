@@ -35,7 +35,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { RouterModule } from '@angular/router';
-import { LastmeasurementsComponent } from './lastmeasurements/lastmeasurements.component';
+import { LastmeasurementsComponent } from '../charts/lastmeasurements/lastmeasurements.component';
 
 /*Entry Components*/
 import { AggmetricasComponent } from './aggmetricas/aggmetricas.component';
@@ -110,7 +110,6 @@ registerLocaleData(localeFr, 'fr');
   ],
   declarations: [
     DashboardComponent,
-    LastmeasurementsComponent,
     AggmetricasComponent,
     ChartDashboardComponent,
     CreateFieldComponent,

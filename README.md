@@ -17,13 +17,14 @@
 - Se agrega al modelo sector la relación con la tabla especie debido al nuevo campo creado.
 - Se crea el componente sectors-species para proporcionar una vista de los sectores pertenecientes a una especie.
 - Se agrega una columna en gestión de sectores para que se vea a que especie pertenece. El editar y el agregar no estan operativos.
+- Se quita la tabla en la vista dashboard y esta se agrega a la vista informes. Cabe destacar que para que se muestren los datos es necesario Apretar el botón "Añadir Campo". El componente lastmeasurements es trasladado a la carpeta charts/chartsjs.
+
 
 
 ## Tareas en la instancia
 - Se elimina todo desarrollo que no sea el correspondiente a esta prueba.
 - Se clona el repositorio y se instalan las dependencias necesarias.
 - Repositorio se encuentra en /var/www/CalGrow.
-- Se mueve el directorio db y auth a la raíz del sistema.
 - Se hace un build al frontEnd
 - La app Angular se ejecuta en /var/www/CalGrow/web/web/dist
 - Se terminan los servicios apache y se ocupa Nginx en el puerto 80.

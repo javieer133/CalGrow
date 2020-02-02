@@ -17,7 +17,7 @@ module.exports = (app, db) => {
       host: 'localhost',
       user: 'calgrow_admin',
       password: 'V0n,^a.O]P!;q~eqG[',
-      database: 'calgrow_measurements'
+      database: 'calgrow_measurement'
     });
 
     

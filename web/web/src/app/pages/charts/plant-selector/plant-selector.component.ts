@@ -18,7 +18,6 @@ export class PlantSelectorComponent implements OnInit {
   @Output() sectorAddedEvent = new EventEmitter<number>();
   @Output() plantAddedEvent = new EventEmitter<number>();
   @Output() plantReset = new EventEmitter();
-  
   fieldForm: FormGroup;
   sectorForm: FormGroup;
   plantForm: FormGroup;
