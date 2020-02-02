@@ -6,6 +6,7 @@ import { FieldsService } from '../../../@core/api/fields.service';
 import { Field, Sector, ApiResponse } from '../../../@core/api/models';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { NbToastrService } from '@nebular/theme';
+import { SpeciesService } from '../../../@core/api/species.service';
 
 @Component({
   selector: 'ngx-smart-table-sector',
@@ -52,6 +53,18 @@ export class SectorsAdminComponent implements OnInit {
         type: 'text',
         filter: false,
       },
+      especie: {
+        title: 'Especie',
+        type: 'text',
+        filter: false,
+        editor: {
+          type: 'list',
+          config: {
+            selectText: 'Select',
+            list: [], // no está listo
+          },
+        }
+      },
     },
   };
 
@@ -82,6 +95,7 @@ export class SectorsAdminComponent implements OnInit {
     private sectorsService: SectorsService,
     private fieldsService: FieldsService,
     private toastrService: NbToastrService,
+    private speciesService: SpeciesService,
     private fb: FormBuilder,
     
   ) { }

@@ -14,6 +14,9 @@
 - Se Agregan validaciones en el formulario de ingreso de Campo.
 - Se quitan los filtros de las tablas en cada componente de fields admin, se agrega el atributo filter=false a la variable settings..
 - Se agregan estilos de css para que los botones se vean separados.
+- Se agrega al modelo sector la relación con la tabla especie debido al nuevo campo creado.
+- Se crea el componente sectors-species para proporcionar una vista de los sectores pertenecientes a una especie.
+- Se agrega una columna en gestión de sectores para que se vea a que especie pertenece. El editar y el agregar no estan operativos.
 
 
 ## Tareas en la instancia

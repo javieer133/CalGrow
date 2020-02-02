@@ -55,6 +55,7 @@ module.exports = (app, db) => {
       password: 'V0n,^a.O]P!;q~eqG[',
       database: 'calgrow_measurements'
     });
+
   
   
     // Get quantity of sectors, plants and fruits for fieldId

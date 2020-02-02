@@ -19,6 +19,7 @@ module.exports = (app, db) => {
       password: 'V0n,^a.O]P!;q~eqG[',
       database: 'calgrow_measurements'
     });
+
     
     consultTypes = {
      month :  `GROUP BY YEAR(M.createdAt), MONTH(M.createdAt) ORDER BY M.createdAt, S.id`, 

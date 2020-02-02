@@ -1,0 +1,33 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="isSelectionConfirmed">
+  <nb-card-body>
+    <form [formGroup]="specieForm" (ngSubmit)="onSpecieSubmit()" class="step-container">
+      <p>Selecciona uno de las especies del menú desplegable para proceder a visualizar los sectores asociados.</p>
+      <div class="input-group">
+        <nb-select placeholder="Selecciona una especie" [(selected)]="selectedSpecieItem" formControlName="fieldCtrl"
+          [fullWidth]="true">
+          <nb-option *ngFor=" let specie of species" [value]="specie"> {{ specie.name }} </nb-option>
+        </nb-select>
+      </div>
+      <div>
+        <button nbButton style="margin-top: 10px;" type="submit">Confirmar selección</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="!isSelectionConfirmed">
+  <nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="!isSelectionConfirmed">
+
+    <nb-card-header *ngIf="selectSpecieOption">
+      Sectores de la especie: {{ selectedSpecieName }}
+      <div class="input-group">
+        <button nbButton (click)="annulateSelection()">Volver a selección de especie</button>
+      </div>
+    </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+

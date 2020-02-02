@@ -20,5 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     Specie.hasMany(models.variety);
   };
 
+  
+
   return Specie;
 }

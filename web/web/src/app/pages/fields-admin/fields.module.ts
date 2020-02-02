@@ -20,6 +20,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FieldsRoutingModule, routedComponents } from './fields-routing.module';
+//import { SectorsSpeciesComponent } from './sectors-species/sectors-species/sectors-species.component';
 
 @NgModule({
   imports: [

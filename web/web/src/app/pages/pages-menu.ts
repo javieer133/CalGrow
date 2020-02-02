@@ -43,6 +43,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Configurar frutos',
         link: '/pages/fields-admin/fruits',
       },
+      {
+        title: 'Sectores por Especie',
+        link: '/pages/fields-admin/sectors-species',
+      },
     ],
   },
   {

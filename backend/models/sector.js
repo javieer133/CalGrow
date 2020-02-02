@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   Sector.associate = (models) => {
     Sector.hasMany(models.plant);
     Sector.belongsTo(models.field);
+    Sector.belongsTo(models.specie);
   };
 
   return Sector;

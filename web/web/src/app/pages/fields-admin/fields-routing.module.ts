@@ -8,6 +8,7 @@ import { SectorsAdminComponent } from './sectors-admin/sectors-admin.component';
 import { PlantsAdminComponent } from './plants-admin/plants-admin.component';
 import { FruitsAdminComponent } from './fruits-admin/fruits-admin.component';
 import { SpeciesAdminComponent } from './species-admin/species-admin.component';
+import { SectorsSpeciesComponent } from './sectors-species/sectors-species.component'
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
         path: 'fruits',
         component: FruitsAdminComponent,
       },
+      {
+        path: 'sectors-species',
+        component: SectorsSpeciesComponent,
+      },
     ],
   },
 ];
@@ -54,6 +59,7 @@ export const routedComponents = [
   SectorsAdminComponent,
   SpeciesAdminComponent,
   PlantsAdminComponent,
-  FruitsAdminComponent
+  FruitsAdminComponent,
+  SectorsSpeciesComponent,
 ];
 
