@@ -10,6 +10,9 @@ import { PlantSelectorComponent } from './plant-selector/plant-selector.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LastmeasurementsComponent } from './lastmeasurements/lastmeasurements.component';
 import { MatFormFieldModule, MatPaginatorModule, MatTableModule, MatIconModule, MatSortModule, MatDialogModule, MatDialogRef, MatInputModule } from '@angular/material';
+import { CrecimientoFechaComponent } from './crecimiento-fecha/crecimiento-fecha.component';
+import { CrecimientoComparadoComponent } from './crecimiento-comparado/crecimiento-comparado.component';
+import { SemanasCocechaComponent } from './semanas-cocecha/semanas-cocecha.component';
 
 const components = [
   ChartjsMultipleXaxisComponent,
@@ -36,6 +39,6 @@ const components = [
     MatSortModule,
     MatInputModule,
   ],
-  declarations: [...routedComponents, ...components],
+  declarations: [...routedComponents, ...components, CrecimientoFechaComponent, CrecimientoComparadoComponent, SemanasCocechaComponent],
 })
 export class ChartsModule {}

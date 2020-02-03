@@ -24,7 +24,7 @@ module.exports = (app, db) => {
       host: 'localhost',
       user: 'calgrow_admin',
       password: 'V0n,^a.O]P!;q~eqG[',
-      database: 'calgrow_measurement'
+      database: 'calgrow_measurements'
     });
 
     var consult = ` 
@@ -53,7 +53,7 @@ module.exports = (app, db) => {
       host: 'localhost',
       user: 'calgrow_admin',
       password: 'V0n,^a.O]P!;q~eqG[',
-      database: 'calgrow_measurement'
+      database: 'calgrow_measurements'
     });
 
   

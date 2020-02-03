@@ -18,7 +18,7 @@
 - Se crea el componente sectors-species para proporcionar una vista de los sectores pertenecientes a una especie.
 - Se agrega una columna en gestión de sectores para que se vea a que especie pertenece. El editar y el agregar no estan operativos.
 - Se quita la tabla en la vista dashboard y esta se agrega a la vista informes. Cabe destacar que para que se muestren los datos es necesario Apretar el botón "Añadir Campo". El componente lastmeasurements es trasladado a la carpeta charts/chartsjs.
-
+- Se agrgan los gráficos Crecimiento a la fecha, Crecimiento comparado y Semanas para la cocecha. Además se incorpora el botón para generar informes(todo a nivel de front-end)
 
 
 ## Tareas en la instancia
