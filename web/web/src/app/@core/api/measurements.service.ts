@@ -21,6 +21,10 @@ export class MeasurementsService {
     return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
+  getMeasurementAVGByFruit(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'avg/');
+  }
+
   createMeasurement(measurement: Measurement): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.baseUrl, measurement);
   }

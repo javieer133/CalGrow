@@ -55,17 +55,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/charts/comparative',
     data: {
       permission: 'read',
-      resource: 'charts'
+      resource: 'charts',
     },
   },
   {
     title: 'Configurar sistema',
     icon: 'browser-outline',
-    link: '',
     data: {
       permission: 'read',
-      resource: 'charts'
+      resource: 'charts',
     },
+    children: [
+      {
+        title: 'Configurar Especies',
+        link: '/pages/config/config-species',
+      },
+    ],
   },
   {
     title: 'Mi Suscripción',

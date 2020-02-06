@@ -7,7 +7,7 @@ import { apiConfig } from '../../../../api.config';
 @Injectable()
 export class SpeciesService {
    //env: string = isDevMode() ? 'development' : 'production';
-   env = 'production'
+   env = 'test'
    config = apiConfig[this.env];
  
    constructor(private http: HttpClient) { }
@@ -19,6 +19,10 @@ export class SpeciesService {
 
   getSpecieById(id: number): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl + id);
+  }
+
+  getSpeciesAvgByField(idField: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'avg/' + idField);
   }
 
   createSpecie(specie: Specie): Observable<ApiResponse> {

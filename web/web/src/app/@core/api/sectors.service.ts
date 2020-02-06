@@ -17,12 +17,19 @@ export class SectorsService {
     return this.http.get<ApiResponse>(this.baseUrl);
   }
 
+  getSectorsByField(idField: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'field/' + idField);
+  }
+
   getSectorById(id: number): Observable<any> {
     return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
+  getHarvestDays(idSector: number): Observable<any> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'harvest/' + idSector);
+  }
+
   createSector(sector: Sector): Observable<any> {
-    console.log("sectors")
     return this.http.post<ApiResponse>(this.baseUrl, sector);
   }
 

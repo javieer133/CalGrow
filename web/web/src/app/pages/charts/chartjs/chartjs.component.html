@@ -2,33 +2,33 @@
   <h6>Parámetros de visualización</h6>
 </div>
 <div class="row">
-  <div class="col-md-6 col-lg-6 col-xxxl-3">
+  <div class="col-md-6 col-lg-6 col-xxxl-3" *ngIf="selectedFieldItem.id">
     <nb-card>
       <nb-card-header>
         Crecimiento a la fecha
       </nb-card-header>
       <nb-card-body>
-        <ngx-crecimiento-fecha></ngx-crecimiento-fecha>
+        <ngx-crecimiento-fecha [field]="selectedFieldItem"></ngx-crecimiento-fecha>
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-md-6 col-lg-6 col-xxxl-3">
+  <div class="col-md-6 col-lg-6 col-xxxl-3" *ngIf="selectedFieldItem.id">
     <nb-card>
       <nb-card-header>
         Crecimiento comparado
       </nb-card-header>
       <nb-card-body>
-        <ngx-crecimiento-comparado></ngx-crecimiento-comparado>
+        <ngx-crecimiento-comparado [field]="selectedFieldItem"></ngx-crecimiento-comparado>
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-md-6 col-lg-6 col-xxxl-3">
+  <div class="col-md-6 col-lg-6 col-xxxl-3" *ngIf="selectedSectorItem.id">
     <nb-card>
       <nb-card-header>
         Semanas para cocecha
       </nb-card-header>
       <nb-card-body>
-        <ngx-semanas-cocecha></ngx-semanas-cocecha>
+        <ngx-semanas-cocecha [sector]="selectedSectorItem"></ngx-semanas-cocecha>
       </nb-card-body>
     </nb-card>
   </div>

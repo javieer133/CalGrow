@@ -56,19 +56,19 @@ export class MeanService {
 
     for (let plant of this.plants) {
       if (selectedSectorsId.includes(plant.sectorId)) {
-        console.log(plant.sectorId)
         selectedPlantsId.push(plant.id)
       }
     }
 
     for (let mean of this.means) {
+      console.log(selectedPlantsId.includes(mean.plantId))
       if (selectedPlantsId.includes(mean.plantId) &&
         this.dateService.isBetween(new Date(mean.createdAt), period.startDate, period.endDate)
       ) {
+        console.log(true)
         selectedMeansInPeriod.push(mean);
       }
     }
-
     return this.getChartData(selectedPlantsId, period, selectedMeansInPeriod);
   }
 

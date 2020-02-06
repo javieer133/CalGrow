@@ -10,6 +10,31 @@ module.exports = (app, db) => {
 
   app.delete("/fruit/:id", (req, res) => crud.delete(db.fruit, req, res));
 
+  app.get("/fruit/plant/:idPlant/", (req, res) => {
+    const mysql = require('mysql2');
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'calgrow_admin',
+      password: 'V0n,^a.O]P!;q~eqG[',
+      database: 'calgrow_measurements'
+    });
+  
+  
+      var consult = ` 
+      SELECT * FROM fruit WHERE plantId = ?
+      ` 
+      connection.query(
+        consult,
+        [req.params.idPlant],
+        function(err, results) {
+          res.status(200).json({
+            status: 200,
+            message: 'OK',
+            payload: results,
+          })
+        });
+      });
+
   app.get("/fruit/field/:id/:type", (req, res) => {
 
     const mysql = require('mysql2');

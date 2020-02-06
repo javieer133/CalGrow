@@ -21,8 +21,11 @@ export class FruitsService {
     return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
+  getFruitsByPlant(idPlant: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'plant/' + idPlant);
+  }
+
   createFruit(fruit: Fruit): Observable<ApiResponse> {
-    console.log(fruit)
     return this.http.post<ApiResponse>(this.baseUrl, fruit);
   }
 

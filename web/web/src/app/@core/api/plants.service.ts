@@ -21,8 +21,11 @@ export class PlantsService {
     return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
+  getPlantsBySector(idSector: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'sector/' + idSector);
+  }
+
   createPlant(plant: Plant): Observable<ApiResponse> {
-    console.log("plants")
     return this.http.post<ApiResponse>(this.baseUrl, plant);
   }
 

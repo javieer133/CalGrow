@@ -9,6 +9,22 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       unique: true,
+    },
+    seasonStart: {
+      type: DataTypes.DATE,
+      unique: false,
+    },
+    seasonFinish: {
+      type: DataTypes.DATE,
+      unique: false,
+    },
+    medida: {
+      type: DataTypes.DECIMAL,
+      unique: false,
+    },
+    harvestDays: {
+      type: DataTypes.DATE,
+      unique: false,
     }
   },
     {
@@ -18,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Specie.associate = (models) => {
     Specie.hasMany(models.variety);
+    Specie.belongsTo(models.tmeasure);
   };
 
   

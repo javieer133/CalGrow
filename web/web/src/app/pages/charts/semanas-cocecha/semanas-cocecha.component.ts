@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Sector } from '../../../@core/api/models';
+import { SectorsService } from '../../../@core/api/sectors.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'ngx-semanas-cocecha',
@@ -11,12 +14,32 @@ export class SemanasCocechaComponent implements OnInit {
   options: any;
   data: any;
 
-  crecimiento: number = 87;
-  diferencia: number = 100 - this.crecimiento; 
-  constructor() { }
+  @Input() sector: Sector;
+
+  currentDate = new Date();
+  harvestDate: Date;
+  seasonStart: Date;
+  diferencia: number;
+  total: number;
+  constructor(private sectorService: SectorsService, private datePipe: DatePipe) { }
 
   
   ngOnInit() {
+    this.sectorService.getHarvestDays(this.sector.id).subscribe({
+      next: function (days) {
+        this.harvestDate = days.payload[0].harvestDays;
+        this.seasonStart = days.payload[0].seasonStart;
+
+
+        this.total = Math.round(((new Date(this.harvestDate).getTime()) - (new Date(this.seasonStart).getTime())) / ((1000*60*60*24)))
+        console.log("total: " ,this.total)
+        this.diferencia = Math.round(((new Date(this.harvestDate).getTime()) - (this.currentDate)) / ((1000*60*60*24)))
+        this.printChart();
+      }.bind(this),
+    });
+  }
+
+  printChart() {
     Chart.plugins.register({
       beforeDraw: function(chart) {
           if(chart.config.options.plugin_one_attribute2) {
@@ -24,10 +47,10 @@ export class SemanasCocechaComponent implements OnInit {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
           ctx.restore();
-          const fontSize = 12;
+          const fontSize = 11;
           ctx.font = fontSize + "px Arial";
           ctx.textBaseline = "middle";
-          const text = "3 días para cocechar",
+          const text = this.diferencia + ' días para cocechar',
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2;
           ctx.fillText(text, textX, textY);
@@ -40,24 +63,14 @@ export class SemanasCocechaComponent implements OnInit {
       cutoutPercentage: 85,
       responsive: true,
       legend: {
-        display: false,
-      },
-      centerText: {
         display: true,
-        text: this.crecimiento,
       },
-      tooltips: {
-        callbacks: {
-           label: function(tooltipItem) {
-                  return tooltipItem.yLabel;
-           }
-        }
-    }
     }
 
     this.data = {
       datasets: [{
-          data: [this.crecimiento, this.diferencia],
+          labels: ['Días Transcurridos', 'Días Faltantes'],
+          data: [this.total - this.diferencia, this.diferencia],
           backgroundColor: ['blue','rgba(0, 0, 0, 0.1)'],
       }],
     };

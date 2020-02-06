@@ -45,6 +45,10 @@ export class ChartjsComponent implements OnInit {
     gps_pos: '',
     subscriptionId: 0,
   };
+  selectedSectorItem: Sector = {
+    name: '',
+    fieldId: 0,
+  };
 
   constructor(
     private chartDataService: MeanService,
@@ -165,11 +169,14 @@ export class ChartjsComponent implements OnInit {
       gps_pos: '',
       subscriptionId: 0,
     }
+    this.selectedSectorItem = {
+      name: '',
+      fieldId: 0,
+    };
   }
 
   fieldAddedEventHandler($addedField: Field) {
-    
-    if($addedField.subscriptionId) this.selectedFieldItem = $addedField
+    if($addedField.subscriptionId) this.selectedFieldItem = $addedField;
     let period = this.getPeriod();
     let fieldsChartData: ChartData[] = this.chartDataService.getFieldMeans($addedField.id, period);
     for (const chartData of fieldsChartData) {
@@ -182,6 +189,7 @@ export class ChartjsComponent implements OnInit {
   }
 
   sectorAddedEventHandler($addedSector: Sector) {
+    this.selectedSectorItem = $addedSector;
     let period = this.getPeriod();
     let sectorsChartData: ChartData[] = this.chartDataService.getSectorMeans($addedSector.id, period);
     sectorsChartData.forEach((chartData) => {

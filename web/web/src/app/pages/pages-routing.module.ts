@@ -25,6 +25,11 @@ const routes: Routes = [{
         .then(m => m.ChartsModule),
     },
     {
+      path: 'config',
+      loadChildren: () => import('./config-system/config-system.module')
+        .then(m => m.ConfigSystemModule),
+    },
+    {
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',

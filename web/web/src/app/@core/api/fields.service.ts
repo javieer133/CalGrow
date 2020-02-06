@@ -18,6 +18,14 @@ export class FieldsService {
     return this.http.get<ApiResponse>(this.baseUrl);
   }
 
+  getAvg(id: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'avg/' + id);
+  }
+
+  getAvgDate(id: number, startDate: string, endDate: string): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + 'avgDate/' + id + '/' + startDate + '/' + endDate);
+  }
+
   getFieldById(id: number): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl + id);
   }

@@ -48,7 +48,7 @@ export class SectorsSpeciesComponent implements OnInit {
     _this.sectorsService.getSectors().subscribe({
       next(response) {
         for (let i = 0, sectors = response.payload; i < sectors.length; i++) {
-          if (sectors[i].fieldId == _this.selectedSpecieItem.id) {
+          if (sectors[i].specieId == _this.selectedSpecieItem.id) {
             _this.filteredSectors.push(sectors[i]); // add to data source only sectors that belgons to the selected field
           }
         }

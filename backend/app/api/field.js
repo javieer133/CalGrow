@@ -47,6 +47,68 @@ module.exports = (app, db) => {
     
   });
 
+  app.get("/field/avg/:id/", (req, res) => {
+    const mysql = require('mysql2');
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'calgrow_admin',
+      password: 'V0n,^a.O]P!;q~eqG[',
+      database: 'calgrow_measurements'
+    });
+
+    var consult = ` 
+    SELECT avg(ecuatorial_mean) AS ecAVG, avg(polar_mean) AS pAVG FROM mean as m
+    inner join plant p on m.plantId = p.id
+    inner join sector s on s.id = p.sectorId
+    inner join field f on s.fieldId = f.id
+    where f.id = ?
+    GROUP BY f.id
+    ` 
+    connection.query(
+      consult,
+      [req.params.id],
+      function(err, results) {
+        res.status(200).json({
+          status: 200,
+          message: 'OK',
+          payload: results,
+        })
+      });
+
+    
+  });
+
+  app.get("/field/avgDate/:id/:startDate/:endDate", (req, res) => {
+    const mysql = require('mysql2');
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'calgrow_admin',
+      password: 'V0n,^a.O]P!;q~eqG[',
+      database: 'calgrow_measurements'
+    });
+
+    var consult = ` 
+    SELECT avg(ecuatorial_mean) AS ecAVG, avg(polar_mean) AS pAVG FROM mean as m
+    inner join plant p on m.plantId = p.id
+    inner join sector s on s.id = p.sectorId
+    inner join field f on s.fieldId = f.id
+    where f.id = ? and m.updatedAt >= ? and m.updatedAt < ? + INTERVAL 1 DAY  
+    GROUP BY f.id 
+    ` 
+    connection.query(
+      consult,
+      [req.params.id, req.params.startDate, req.params.endDate],
+      function(err, results) {
+        res.status(200).json({
+          status: 200,
+          message: 'OK',
+          payload: results,
+        })
+      });
+
+    
+  });
+
   app.get("/field/:id/counts", (req, res) => {
     const mysql = require('mysql2');
     const connection = mysql.createConnection({

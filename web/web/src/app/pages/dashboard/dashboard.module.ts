@@ -56,6 +56,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DecisionComponent } from './decision/decision.component';
+import { ConfigSystemModule } from '../config-system/config-system.module';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -96,6 +97,7 @@ registerLocaleData(localeFr, 'fr');
     MatButtonModule,
     ReactiveFormsModule,
     FieldsModule,
+    ConfigSystemModule,
     FieldsManagementModule,
     NbToastrModule.forRoot(),
     NbDialogModule.forChild(),
