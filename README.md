@@ -22,6 +22,8 @@
 - A la tabla sector se le agrega la columna "specieId", a la tabla specie se le agregan las columnas "medida", "seasonStart", "seasonFinish", "harvestDays" y "tmeasureId"
 - Los pasos para la generación de gráficos son: Verificar que un sector pertenezca a una especie, en este caso solo hay 2, Verificar que la especie en cuestión tenga un inicio de temporada, un final de temporada, una fecha de cocecha y una medida, y por último que existan registros en la tabla mean asociados a una planta "x".
 
+## Consideraciones
+- Los datos que se muestran el los gráficos son solo de las medidas polares.
 
 ## Tareas en la instancia
 - Se elimina todo desarrollo que no sea el correspondiente a esta prueba.
