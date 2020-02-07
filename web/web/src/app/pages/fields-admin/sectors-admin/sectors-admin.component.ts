@@ -53,7 +53,7 @@ export class SectorsAdminComponent implements OnInit {
         type: 'text',
         filter: false,
       },
-      especie: {
+      specieId: {
         title: 'Especie',
         type: 'text',
         filter: false,
@@ -61,7 +61,8 @@ export class SectorsAdminComponent implements OnInit {
           type: 'list',
           config: {
             selectText: 'Select',
-            list: [], // no está listo
+            list: [
+              {value:1, title:`Ciruela D’agen`}, {value: 2, title:'Kiwi Enza Gold'}], // no está listo
           },
         }
       },
@@ -150,7 +151,8 @@ export class SectorsAdminComponent implements OnInit {
     this.sectorsService.createSector({
       id: null,
       name: event.newData.name,
-      fieldId: _this.selectedFieldItem.id
+      fieldId: _this.selectedFieldItem.id,
+      specieId: event.newData.specieId,
     })
       .subscribe({
         next(newSector) {
@@ -168,10 +170,12 @@ export class SectorsAdminComponent implements OnInit {
 
   onEditConfirm(event): void {
     let _this = this;
+    console.log(event)
     this.sectorsService.updateSector({
       id: event.newData.id,
       name: event.newData.name,
-      fieldId: _this.selectedFieldItem.id
+      fieldId: _this.selectedFieldItem.id,
+      specieId: event.newData.specieId,
     })
       .subscribe({
         next(newSector) {

@@ -18,7 +18,9 @@
 - Se crea el componente sectors-species para proporcionar una vista de los sectores pertenecientes a una especie.
 - Se agrega una columna en gestión de sectores para que se vea a que especie pertenece. El editar y el agregar no estan operativos.
 - Se quita la tabla en la vista dashboard y esta se agrega a la vista informes. Cabe destacar que para que se muestren los datos es necesario Apretar el botón "Añadir Campo". El componente lastmeasurements es trasladado a la carpeta charts/chartsjs.
-- Se agrgan los gráficos Crecimiento a la fecha, Crecimiento comparado y Semanas para la cocecha. Además se incorpora el botón para generar informes(todo a nivel de front-end)
+- Se agergan los gráficos Crecimiento a la fecha, Crecimiento comparado y Semanas para la cocecha. Además se incorpora el botón para generar informes(todo a nivel de front-end)
+- A la tabla sector se le agrega la columna "specieId", a la tabla specie se le agregan las columnas "medida", "seasonStart", "seasonFinish", "harvestDays" y "tmeasureId"
+- Los pasos para la generación de gráficos son: Verificar que un sector pertenezca a una especie, en este caso solo hay 2, Verificar que la especie en cuestión tenga un inicio de temporada, un final de temporada, una fecha de cocecha y una medida, y por último que existan registros en la tabla mean asociados a una planta "x".
 
 
 ## Tareas en la instancia

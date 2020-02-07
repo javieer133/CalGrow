@@ -48,6 +48,7 @@ export class ChartjsComponent implements OnInit {
   selectedSectorItem: Sector = {
     name: '',
     fieldId: 0,
+    specieId: 0
   };
 
   constructor(
@@ -172,6 +173,7 @@ export class ChartjsComponent implements OnInit {
     this.selectedSectorItem = {
       name: '',
       fieldId: 0,
+      specieId: 0,
     };
   }
 

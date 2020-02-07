@@ -46,6 +46,11 @@ export class ConfigSpecieComponent implements OnInit {
         type: 'text',
         filter: false,
       },
+      harvestDays: {
+        title: 'Fecha de cocecha',
+        type: 'text',
+        filter: false,
+      },
       medida: {
         title: 'Medida Máxima',
         type: 'text',
@@ -53,7 +58,7 @@ export class ConfigSpecieComponent implements OnInit {
       },
       id_measure: {
         title: 'Tipo de Medida',
-        type: 'text',
+        type: 'number',
         filter: false,
       },
     },

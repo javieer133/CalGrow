@@ -86,7 +86,7 @@ module.exports = (app, db) => {
       password: 'V0n,^a.O]P!;q~eqG[',
       database: 'calgrow_measurements'
     });
-
+    
     var consult = ` 
     SELECT avg(ecuatorial_mean) AS ecAVG, avg(polar_mean) AS pAVG FROM mean as m
     inner join plant p on m.plantId = p.id

@@ -18,6 +18,7 @@ export class Sector {
   id?: number;
   name: string;
   fieldId: number;
+  specieId: number;
 }
 
 export class Plant {
