@@ -4,8 +4,8 @@
   "description": "RESTful API for connection with MySQL database with Sequelize ORM for CalGrow project. This API satisfy the Nebular requirements for Backend API authentification.",
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
     "sequelize": "^5.17.1"
